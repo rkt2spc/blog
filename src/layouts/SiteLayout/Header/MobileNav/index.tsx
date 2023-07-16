@@ -6,11 +6,11 @@ import { usePathname } from 'next/navigation'
 import MenuIcon from './menu.svg'
 import CloseIcon from './close.svg'
 
-import DataTypes from '@/data/types'
 import Link from '@/components/Link'
+import { NavLinks } from '@/types'
 
 type MobileNavProps = {
-  links: DataTypes.NavLinks
+  links: NavLinks
 }
 
 export default function MobileNav({ links }: MobileNavProps) {

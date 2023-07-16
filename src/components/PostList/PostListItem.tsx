@@ -23,8 +23,8 @@ export default function PostListItem({
   const tagCls = [
     'rounded-full px-3 py-1 text-xs uppercase no-underline',
     'text-primary-600 dark:text-secondary-400',
-    'bg-slate-100 dark:bg-neutral-700',
-    'hover:bg-slate-200 dark:hover:bg-neutral-600',
+    'bg-slate-200 dark:bg-neutral-700',
+    'hover:bg-slate-300 dark:hover:bg-neutral-600',
   ]
     .join(' ')
     .trim()

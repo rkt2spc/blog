@@ -18,14 +18,14 @@ import rehypeKatex from 'rehype-katex'
 import rehypePrismPlus from 'rehype-prism-plus'
 
 import { DIRECTORY_ROOT, DIRECTORY_DATA_POSTS, DIRECTORY_PUBLIC_STATIC } from './constants'
-import { blogsCache } from './cache'
-import { Post } from './types'
+import { postsCache } from './cache'
+import { Post } from '@/types'
 
 export default async function getPostBySlug(slug: string): Promise<Post> {
-  // const cachedBlog = blogsCache.get<Post>(slug)
-  // if (cachedBlog) {
-  //   return cachedBlog
-  // }
+  const cachedPost = postsCache.get<Post>(slug)
+  if (cachedPost) {
+    return cachedPost
+  }
 
   const mdxSourcePath = [
     path.join(DIRECTORY_DATA_POSTS, `${slug}.mdx`),
@@ -67,7 +67,7 @@ export default async function getPostBySlug(slug: string): Promise<Post> {
       return options
     },
     esbuildOptions: (options) => {
-      options.outdir = path.join(DIRECTORY_PUBLIC_STATIC, 'blog', slug)
+      options.outdir = path.join(DIRECTORY_PUBLIC_STATIC, 'blog', slug, 'images')
       options.loader = {
         ...options.loader,
         '.svg': 'dataurl',
@@ -89,7 +89,7 @@ export default async function getPostBySlug(slug: string): Promise<Post> {
     throw new Error(`post[${slug}] is missing metadata`)
   }
 
-  const blog: Post = {
+  const post: Post = {
     mdxCode: code,
     metadata: {
       slug: slug,
@@ -103,6 +103,6 @@ export default async function getPostBySlug(slug: string): Promise<Post> {
     },
   }
 
-  blogsCache.set(slug, blog)
-  return blog
+  postsCache.set(slug, post)
+  return post
 }

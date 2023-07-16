@@ -23,15 +23,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: PropsWithChildren) {
   const colorTransitionCls = [
-    'transition-colors',
+    'transition',
     'ease-in-out',
-    'duration-150',
+    'duration-200',
     'motion-reduce:transition-none',
   ]
     .join(' ')
     .trim()
 
-  const htmlCls = ['scroll-smooth', 'stable-scrollbar-gutter', outfit.variable].join(' ')
+  const htmlCls = ['scroll-smooth', outfit.variable].join(' ')
 
   const bodyCls = [
     'antialiased',

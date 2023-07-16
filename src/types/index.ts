@@ -15,3 +15,8 @@ export type PostMetadata = {
   tags: string[]
   draft: boolean
 }
+
+export type Post = {
+  mdxCode: string
+  metadata: PostMetadata
+}

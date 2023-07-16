@@ -7,3 +7,4 @@ export const DIRECTORY_PUBLIC = path.join(DIRECTORY_ROOT, 'public')
 export const DIRECTORY_PUBLIC_STATIC = path.join(DIRECTORY_PUBLIC, 'static')
 
 export const CACHE_KEY_META_SLUGS = 'slugs'
+export const CACHE_KEY_META_METADATA = 'metadata'

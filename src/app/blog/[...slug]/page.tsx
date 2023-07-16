@@ -1,4 +1,5 @@
-import { getSlugs, getPostBySlug } from '@/lib/mdx'
+import { memo } from 'react'
+import { getAllPostSlugs, getPostBySlug } from '@/lib/mdx'
 import { getMDXComponent } from 'mdx-bundler/client'
 import { Components } from '@/components/MDX'
 
@@ -13,7 +14,7 @@ type PostPageProps = {
 export const dynamicParams = false
 
 export async function generateStaticParams(): Promise<PostPageParams[]> {
-  const slugs = await getSlugs()
+  const slugs = await getAllPostSlugs()
   return slugs.map((v) => ({ slug: v.split('/') }))
 }
 
@@ -30,4 +31,4 @@ async function PostPage({ params }: PostPageProps) {
   )
 }
 
-export default PostPage
+export default memo(PostPage)

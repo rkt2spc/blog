@@ -1,11 +1,11 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
-import DataTypes from '@/data/types'
 import Link from '@/components/Link'
+import { NavLinks } from '@/types'
 
 type NavProps = {
-  links: DataTypes.NavLinks
+  links: NavLinks
 }
 
 export default function Nav({ links }: NavProps) {

@@ -1,7 +1,7 @@
 import 'server-only'
 import NodeCache from 'node-cache'
 
-export const blogsCache = new NodeCache({
+export const postsCache = new NodeCache({
   stdTTL: 1800,
   checkperiod: 600,
   useClones: false,
