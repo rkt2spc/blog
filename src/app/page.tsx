@@ -5,7 +5,7 @@ import PageLayout from '@/layouts/PageLayout'
 import HomeBanner, { HomeBannerProps } from '@/components/HomeBanner'
 import PostList from '@/components/PostList'
 
-import { getAllPosts } from '@/lib/mdx'
+import { getBatchPostsMetadata } from '@/lib/mdx'
 
 export default async function Home() {
   const bannerProps: HomeBannerProps = {
@@ -18,13 +18,13 @@ export default async function Home() {
     ),
   }
 
-  const posts = await getAllPosts()
+  const postsMetadata = await getBatchPostsMetadata({ offset: 0, limit: 1 })
 
   return (
     <div className="space-y-8">
       <HomeBanner {...bannerProps} />
       <PageLayout title="Latest Posts">
-        <PostList posts={posts.map((v) => v.metadata)} />
+        <PostList postsMetadata={postsMetadata} />
       </PageLayout>
     </div>
   )

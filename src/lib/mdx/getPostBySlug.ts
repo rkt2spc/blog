@@ -17,12 +17,17 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import rehypeKatex from 'rehype-katex'
 import rehypePrismPlus from 'rehype-prism-plus'
 
-import { DIRECTORY_ROOT, DIRECTORY_DATA_POSTS, DIRECTORY_PUBLIC_STATIC } from './constants'
-import { postsCache } from './cache'
+import { kebabCase, uniq } from '@/lib/util'
 import { Post } from '@/types'
 
+import { CACHE_KEY_POSTS } from './constants'
+import { cache } from './caches'
+import { DIRECTORY_ROOT, DIRECTORY_DATA_POSTS, DIRECTORY_PUBLIC_STATIC } from './constants'
+
 export default async function getPostBySlug(slug: string): Promise<Post> {
-  const cachedPost = postsCache.get<Post>(slug)
+  const cacheKey = `${CACHE_KEY_POSTS}[slug:${slug}]`
+
+  const cachedPost = cache.get<Post>(cacheKey)
   if (cachedPost) {
     return cachedPost
   }
@@ -83,11 +88,13 @@ export default async function getPostBySlug(slug: string): Promise<Post> {
   })
 
   const { title, date, summary, thumbnail, tags, draft } = frontmatter
-  const readingMinutes = readingTime(code).minutes
+  const readingMinutes = readingTime(mdxSource).minutes
 
   if (!title || !date || !summary) {
     throw new Error(`post[${slug}] is missing metadata`)
   }
+
+  const normalizedTags = uniq((tags || []).map((tag: string) => kebabCase(tag)))
 
   const post: Post = {
     mdxCode: code,
@@ -98,11 +105,11 @@ export default async function getPostBySlug(slug: string): Promise<Post> {
       summary: summary,
       thumbnail: thumbnail || '',
       readingMinutes: readingMinutes,
-      tags: tags || [],
+      tags: normalizedTags,
       draft: draft || false,
     },
   }
 
-  postsCache.set(slug, post)
+  cache.set(cacheKey, post)
   return post
 }

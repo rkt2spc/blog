@@ -1,10 +1,12 @@
 import 'server-only'
 
+import { Parent } from 'unist'
+import { Code } from 'mdast'
 import { visit } from 'unist-util-visit'
 
 export default function remarkCodeTitles() {
-  return (tree: any) =>
-    visit(tree, 'code', (node, index) => {
+  return (tree: Parent) =>
+    visit(tree, 'code', (node: Code, index) => {
       const nodeLang = node.lang || ''
       let language = ''
       let title = ''

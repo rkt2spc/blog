@@ -7,7 +7,7 @@ export type PageLayoutProps = PropsWithChildren & {
 
 export default function PageLayout({ title, subtitle, children }: PageLayoutProps) {
   const titleCls = [
-    'text-3xl md:text-4xl',
+    'text-4xl md:text-5xl',
     'leading-9 sm:leading-10 md:leading-14',
     'font-extrabold tracking-tight',
     'text-gray-900 dark:text-gray-100',

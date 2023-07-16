@@ -1,26 +1,33 @@
 'use client'
 
-// import { useState } from 'react'
+import { useState } from 'react'
 
-import PostListItem, { PostListItemProps } from './PostListItem'
+import PostListItem from './PostListItem'
+import Pagination, { PaginationProps } from './Pagination'
 import SearchBox from './SearchBox'
+
+import { PostMetadata } from '@/types'
 
 export type PostListProps = {
   searchable?: boolean
-  posts: PostListItemProps[]
+  pagination?: PaginationProps
+  postsMetadata: PostMetadata[]
 }
 
-export default function PostList({ searchable = false, posts }: PostListProps) {
+export default function PostList({ searchable = false, pagination, postsMetadata }: PostListProps) {
+  const [searchText, setSearchText] = useState('')
+
   return (
     <div>
-      {searchable ? <SearchBox /> : null}
+      {searchable && <SearchBox setSearchText={setSearchText} />}
       <ul className="divide-y divide-gray-100 dark:divide-gray-800">
-        {posts.map((post) => (
-          <li key={`${post.slug}`} className="py-6">
-            <PostListItem {...post} />
+        {postsMetadata.map((md) => (
+          <li key={`${md.slug}`} className="py-6">
+            <PostListItem {...md} />
           </li>
         ))}
       </ul>
+      {pagination && <Pagination {...pagination} />}
     </div>
   )
 }

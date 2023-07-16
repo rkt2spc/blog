@@ -16,7 +16,7 @@ export default function HomeBanner({ title, titleEmoji, message }: HomeBannerPro
   ]
     .join(' ')
     .trim()
-  const titleCls = 'text-4xl md:text-5xl py-1'
+  const titleCls = 'text-5xl md:text-6xl py-1'
   const messageCls = 'mt-2 first:mt-4 leading-snug text-lg text-gray-600 dark:text-gray-300'
 
   return (

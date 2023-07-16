@@ -2,15 +2,9 @@
 
 import Image from 'next/image'
 import Link from '@/components/Link'
+import Tag from '@/components/Tag'
 
-export interface PostListItemProps {
-  slug: string
-  title: string
-  date: Date
-  summary: string
-  thumbnail?: string
-  tags: string[]
-}
+import { PostMetadata } from '@/types'
 
 export default function PostListItem({
   slug,
@@ -19,16 +13,7 @@ export default function PostListItem({
   summary,
   thumbnail,
   tags,
-}: PostListItemProps) {
-  const tagCls = [
-    'rounded-full px-3 py-1 text-xs uppercase no-underline',
-    'text-primary-600 dark:text-secondary-400',
-    'bg-slate-200 dark:bg-neutral-700',
-    'hover:bg-slate-300 dark:hover:bg-neutral-600',
-  ]
-    .join(' ')
-    .trim()
-
+}: PostMetadata) {
   const dateStr = date.toLocaleDateString('en-us', {
     year: 'numeric',
     month: 'short',
@@ -63,9 +48,7 @@ export default function PostListItem({
         </div>
         <div className="mt-2 flex flex-wrap gap-2">
           {tags.map((tag) => (
-            <Link key={tag} className={tagCls} href="/tags">
-              {tag}
-            </Link>
+            <Tag key={tag} name={tag} />
           ))}
         </div>
       </div>

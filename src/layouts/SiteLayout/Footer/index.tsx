@@ -5,6 +5,8 @@ import TailwindIcon from './tailwind.svg'
 import TypeScriptIcon from './typescript.svg'
 import UmamiIcon from './umami.svg'
 
+import Container from '@/components/Container'
+
 export default function Footer() {
   const sourceURL = 'https://github.com/rkt2spc/blog'
   const author = 'Tuan M Nguyen'
@@ -12,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-between items-center text-sm mt-16 mb-10">
+      <Container className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-between items-center text-sm mt-16 mb-10">
         <div className="col-span-1 justify-self-center sm:justify-self-start space-x-1.5">
           <span className="text-gray-500 dark:text-gray-400">Built with</span>
           <a target="_blank" href={`https://nextjs.org/?ref=${ref}`}>
@@ -38,7 +40,7 @@ export default function Footer() {
         <div className="col-span-1 justify-self-center sm:justify-self-end space-x-1.5 text-gray-500 dark:text-gray-400">
           Copyright © 2023 <span className="text-black dark:text-white">{author}</span>
         </div>
-      </div>
+      </Container>
     </footer>
   )
 }

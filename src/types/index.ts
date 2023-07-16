@@ -20,3 +20,8 @@ export type Post = {
   mdxCode: string
   metadata: PostMetadata
 }
+
+export type Batch = {
+  offset: number
+  limit: number
+}

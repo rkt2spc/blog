@@ -5,12 +5,12 @@ import Footer from './Footer'
 
 export default function SiteLayout({ children }: PropsWithChildren) {
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <Header />
-      <Container className="flex h-screen flex-col justify-between">
-        <main className="mb-auto md:pr-2">{children}</main>
-        <Footer />
+      <Container className="w-full mb-auto">
+        <main className="md:pr-2">{children}</main>
       </Container>
+      <Footer />
     </div>
   )
 }

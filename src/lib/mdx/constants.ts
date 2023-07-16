@@ -6,5 +6,8 @@ export const DIRECTORY_DATA_POSTS = path.join(DIRECTORY_ROOT, 'src/data/posts')
 export const DIRECTORY_PUBLIC = path.join(DIRECTORY_ROOT, 'public')
 export const DIRECTORY_PUBLIC_STATIC = path.join(DIRECTORY_PUBLIC, 'static')
 
-export const CACHE_KEY_META_SLUGS = 'slugs'
-export const CACHE_KEY_META_METADATA = 'metadata'
+export const CACHE_KEY_POSTS = 'posts'
+export const CACHE_KEY_SLUGS = 'slugs'
+export const CACHE_KEY_TAGS = 'tags'
+export const CACHE_KEY_METADATA = 'metadata'
+export const CACHE_KEY_COUNT = 'count'

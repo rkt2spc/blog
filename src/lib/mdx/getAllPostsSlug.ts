@@ -3,11 +3,11 @@ import 'server-only'
 import path from 'path'
 import { glob } from 'glob'
 
-import { DIRECTORY_DATA_POSTS, CACHE_KEY_META_SLUGS } from './constants'
-import { metaCache } from './cache'
+import { cache } from './caches'
+import { DIRECTORY_DATA_POSTS, CACHE_KEY_SLUGS } from './constants'
 
-export default async function getAllPostSlugs(): Promise<string[]> {
-  const cachedSlugs = metaCache.get<string[]>(CACHE_KEY_META_SLUGS)
+export default async function getAllPostsSlug(): Promise<string[]> {
+  const cachedSlugs = cache.get<string[]>(CACHE_KEY_SLUGS)
   if (cachedSlugs) {
     return cachedSlugs
   }
@@ -17,6 +17,6 @@ export default async function getAllPostSlugs(): Promise<string[]> {
     v.slice(DIRECTORY_DATA_POSTS.length + 1).replace(/(\/index)?\.(md|mdx)$/, '')
   )
 
-  metaCache.set(CACHE_KEY_META_SLUGS, slugs)
+  cache.set(CACHE_KEY_SLUGS, slugs)
   return slugs
 }
