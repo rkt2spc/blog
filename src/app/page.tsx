@@ -18,7 +18,7 @@ export default async function Home() {
     ),
   }
 
-  const postsMetadata = await getBatchPostsMetadata({ offset: 0, limit: 1 })
+  const postsMetadata = await getBatchPostsMetadata({ offset: 0, limit: 3 })
 
   return (
     <div className="space-y-8">

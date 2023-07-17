@@ -56,12 +56,12 @@ const nextConfig = {
   // images: {
   //   unoptimized: true,
   // },
-  // headers: async () => [
-  //   {
-  //     source: '/(.*)',
-  //     headers: securityHeaders,
-  //   },
-  // ],
+  headers: async () => [
+    {
+      source: '/(.*)',
+      headers: securityHeaders,
+    },
+  ],
   webpack: (config, { dev, isServer }) => {
     config.module.rules.push({
       test: /\.svg$/,

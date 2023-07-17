@@ -1,5 +1,3 @@
-'use client'
-
 import Emoji from '@/components/Emoji'
 
 export type HomeBannerProps = {

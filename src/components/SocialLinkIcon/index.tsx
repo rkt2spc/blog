@@ -1,6 +1,6 @@
 'use client'
 
-import { ReactElement } from 'react'
+import { ComponentType, HTMLAttributes } from 'react'
 import Link from '@/components/Link'
 import Mail from './mail.svg'
 import Github from './github.svg'
@@ -9,7 +9,7 @@ import Youtube from './youtube.svg'
 import Linkedin from './linkedin.svg'
 import Twitter from './twitter.svg'
 
-const components: { [key: string]: ReactElement } = {
+const components: { [key: string]: ComponentType<HTMLAttributes<SVGElement>> } = {
   mail: Mail,
   github: Github,
   facebook: Facebook,

@@ -15,15 +15,15 @@ export default function Pagination({ linkPrefix, totalPages, currentPage }: Pagi
 
   const prevPage = Number(currentPage) - 1
   const hasPrevPage = prevPage > 0
-  const prevLink = prevPage == firstPage ? firstLink : `${linkPrefix}/page/${prevPage}`
+  const prevLink = prevPage == firstPage ? firstLink : `${linkPrefix}/${prevPage}`
 
   const nextPage = Number(currentPage) + 1
   const hasNextPage = nextPage <= Number(totalPages)
-  const nextLink = `${linkPrefix}/page/${nextPage}`
+  const nextLink = `${linkPrefix}/${nextPage}`
 
   const lastPage = Number(totalPages)
   const hasLastPage = lastPage != Number(currentPage)
-  const lastLink = `${linkPrefix}/page/${lastPage}`
+  const lastLink = `${linkPrefix}/${lastPage}`
 
   const LeftNavigation = (
     <div className="flex-1 space-x-4 text-start">

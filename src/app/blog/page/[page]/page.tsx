@@ -1,4 +1,4 @@
-import { getAllPostsCount, getBatchPostsMetadata } from '@/lib/mdx'
+import { getAllPostsCount, getAllPostsMetadata } from '@/lib/mdx'
 import PageLayout from '@/layouts/PageLayout'
 import PostList from '@/components/PostList'
 
@@ -26,20 +26,18 @@ export default async function PostsListPage({ params }: PostsListPageProps) {
   const { page } = params
   const pageNumber = Number(page)
 
-  const postsMetadata = await getBatchPostsMetadata({
-    offset: (pageNumber - 1) * POSTS_PER_PAGE,
-    limit: POSTS_PER_PAGE,
-  })
-
-  const totalPosts = await getAllPostsCount()
-  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)
+  const postsMetadata = await getAllPostsMetadata()
 
   return (
     <PageLayout title="All Posts">
       <PostList
         searchable
         postsMetadata={postsMetadata}
-        pagination={{ linkPrefix: '/blog', currentPage: pageNumber, totalPages: totalPages }}
+        pagination={{
+          linkPrefix: '/blog/page',
+          currentPage: pageNumber,
+          itemsPerPage: POSTS_PER_PAGE,
+        }}
       />
     </PageLayout>
   )

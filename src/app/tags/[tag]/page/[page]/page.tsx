@@ -1,7 +1,7 @@
 import PageLayout from '@/layouts/PageLayout'
 import PostList from '@/components/PostList'
 
-import { getAllPostsTag, getPostsCountByTag, getBatchPostsMetadataByTag } from '@/lib/mdx'
+import { getAllPostsTag, getPostsCountByTag, getPostsMetadataByTag } from '@/lib/mdx'
 
 type PostListByTagPageParams = {
   tag: string
@@ -39,20 +39,18 @@ export default async function PostListByTagPage({ params }: PostListByTagPagePro
   const { tag, page } = params
   const pageNumber = Number(page)
 
-  const postsMetadata = await getBatchPostsMetadataByTag(
-    { offset: (pageNumber - 1) * POSTS_PER_PAGE, limit: POSTS_PER_PAGE },
-    tag
-  )
-
-  const totalPosts = await getPostsCountByTag(tag)
-  const totalPages = Math.ceil(totalPosts / POSTS_PER_PAGE)
+  const postsMetadata = await getPostsMetadataByTag(tag)
 
   return (
     <PageLayout title={`Tag: ${tag}`}>
       <PostList
         searchable
         postsMetadata={postsMetadata}
-        pagination={{ linkPrefix: `/tags/${tag}`, currentPage: pageNumber, totalPages: totalPages }}
+        pagination={{
+          linkPrefix: `/tags/${tag}/page`,
+          currentPage: pageNumber,
+          itemsPerPage: POSTS_PER_PAGE,
+        }}
       />
     </PageLayout>
   )
