@@ -19,7 +19,7 @@ export default function CustomLink({
   const isAnchorLink = href && href.startsWith('#')
 
   const cls = [
-    'lg:hover:text-primary-500 dark:lg:hover:text-secondary-500',
+    'hover:text-primary-500 dark:hover:text-secondary-500',
     `${className}`,
     `${active ? activeClassName : ''}`,
   ]

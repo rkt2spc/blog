@@ -5,23 +5,10 @@ export type Link = {
 
 export type NavLinks = Record<string, Link>
 
-export type PostMetadata = {
-  slug: string
-  title: string
-  date: Date
-  summary: string
-  thumbnail: string
-  readingMinutes: number
-  tags: string[]
-  draft: boolean
-}
-
-export type Post = {
-  mdxCode: string
-  metadata: PostMetadata
-}
-
 export type Batch = {
   offset: number
   limit: number
 }
+
+export type { PostMetadata, Post } from './post'
+export type { AuthorMetadata, Author, SocialRef } from './author'
