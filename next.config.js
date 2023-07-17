@@ -50,12 +50,9 @@ const securityHeaders = [
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // output: 'export',
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH,
   reactStrictMode: true,
   poweredByHeader: false,
-  // images: {
-  //   unoptimized: true,
-  // },
   headers: async () => [
     {
       source: '/(.*)',
@@ -81,6 +78,12 @@ const nextConfig = {
 
     return config
   },
+}
+
+if (process.env.NEXT_STATIC_EXPORT) {
+  nextConfig.output = 'export'
+  nextConfig.images = { unoptimized: true }
+  delete nextConfig.headers
 }
 
 module.exports = nextConfig

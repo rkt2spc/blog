@@ -80,7 +80,13 @@ export default async function getPostBySlug(slug: string): Promise<Post> {
         '.jpg': 'file',
         '.webp': 'file',
       }
-      options.publicPath = path.join('/static', 'blog', slug, 'images')
+      options.publicPath = path.join(
+        process.env.NEXT_PUBLIC_BASE_PATH || '/',
+        'static',
+        'blog',
+        slug,
+        'images'
+      )
       options.write = true
 
       return options

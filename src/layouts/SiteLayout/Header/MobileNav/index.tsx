@@ -60,7 +60,7 @@ export default function MobileNav({ links }: MobileNavProps) {
               <Link
                 href={link.href}
                 className="text-2xl text-gray-900 dark:text-gray-100"
-                active={link.href == currentPath}
+                active={currentPath === `${process.env.NEXT_PUBLIC_BASE_PATH}${link.href}`}
                 activeClassName="font-semibold text-primary-500 dark:text-secondary-500"
                 onClick={onToggleNav}
               >

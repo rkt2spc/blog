@@ -17,7 +17,7 @@ export default function Nav({ links }: NavProps) {
         <Link
           key={key}
           href={link.href}
-          active={link.href == currentPath}
+          active={currentPath === `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${link.href}`}
           activeClassName="font-semibold text-primary-500 dark:text-secondary-500"
           className="text-gray-900 dark:text-gray-100 p-1 sm:p-4 first:ps-0"
         >
