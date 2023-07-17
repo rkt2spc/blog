@@ -34,7 +34,7 @@ export default async function PostsListPage({ params }: PostsListPageProps) {
         searchable
         postsMetadata={postsMetadata}
         pagination={{
-          linkPrefix: '/blog/page',
+          linkPrefix: '/blog',
           currentPage: pageNumber,
           itemsPerPage: POSTS_PER_PAGE,
         }}

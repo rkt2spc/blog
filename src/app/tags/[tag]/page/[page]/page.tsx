@@ -47,7 +47,7 @@ export default async function PostListByTagPage({ params }: PostListByTagPagePro
         searchable
         postsMetadata={postsMetadata}
         pagination={{
-          linkPrefix: `/tags/${tag}/page`,
+          linkPrefix: `/tags/${tag}`,
           currentPage: pageNumber,
           itemsPerPage: POSTS_PER_PAGE,
         }}
