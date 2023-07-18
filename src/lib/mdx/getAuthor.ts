@@ -77,6 +77,7 @@ export default async function getPostBySlug(): Promise<Author> {
         '.png': 'file',
         '.jpg': 'file',
         '.webp': 'file',
+        '.gif': 'file',
       }
       options.publicPath = path.join(
         process.env.NEXT_PUBLIC_BASE_PATH || '/',
