@@ -7,10 +7,12 @@ import UmamiIcon from './umami.svg'
 
 import Container from '@/components/Container'
 
+import { kebabCase } from '@/lib/util'
+import { siteMetadata } from '@/data'
+
 export default function Footer() {
-  const sourceURL = 'https://github.com/rkt2spc/blog'
-  const author = 'Tuan M Nguyen'
-  const ref = 'rkt2spc'
+  const { source, author, nickname } = siteMetadata
+  const ref = kebabCase(nickname)
 
   return (
     <footer>
@@ -32,7 +34,7 @@ export default function Footer() {
           <span className="mx-1 text-gray-500 dark:text-gray-400">-</span>
           <Link
             className="underline underline-offset-4 text-gray-500 dark:text-gray-400"
-            href={sourceURL}
+            href={source}
           >
             View Source
           </Link>

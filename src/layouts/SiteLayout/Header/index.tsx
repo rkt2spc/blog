@@ -3,7 +3,7 @@ import ThemeSwitch from '@/components/ThemeSwitch'
 import Nav from './Nav'
 import MobileNav from './MobileNav'
 
-import headerNavLinks from '@/data/navLinks.json'
+import { navLinks } from '@/data'
 
 export default function Header() {
   const cls = [
@@ -18,9 +18,9 @@ export default function Header() {
   return (
     <header className={cls}>
       <Container className="flex items-center justify-end sm:justify-between">
-        <Nav links={headerNavLinks} />
+        <Nav links={navLinks} />
         <ThemeSwitch />
-        <MobileNav links={headerNavLinks} />
+        <MobileNav links={navLinks} />
       </Container>
     </header>
   )

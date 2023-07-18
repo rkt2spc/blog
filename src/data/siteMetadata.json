@@ -1,11 +1,9 @@
 {
-  "title": "rkt2spc",
-  "headerTitle": "rkt2spc",
-  "theme": "system",
+  "title": "Tuan's Corner",
+  "description": "Tuan's Digital Home",
   "author": "Tuan M Nguyen",
-  "social": {
-    "email": "me@nmtuan.space",
-    "github": "https://github.com/rkt2spc",
-    "linkedin": "https://www.linkedin.com/in/mntuan/"
-  }
+  "source": "https://github.com/rkt2spc/blog",
+  "nickname": "rkt2spc",
+  "locale": "en-US",
+  "host": "https://rkt2spc.com"
 }

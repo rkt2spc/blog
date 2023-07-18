@@ -16,9 +16,11 @@ import { PropsWithChildren } from 'react'
 import SiteLayout from '@/layouts/SiteLayout'
 import Providers from './providers'
 
+import { siteMetadata } from '@/data'
+
 export const metadata: Metadata = {
-  title: `Tuan's Corner`,
-  description: `<3`,
+  title: siteMetadata.title,
+  description: siteMetadata.description,
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {

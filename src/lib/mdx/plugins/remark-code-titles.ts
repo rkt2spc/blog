@@ -1,11 +1,11 @@
 import 'server-only'
 
-import { Parent } from 'unist'
 import { Code } from 'mdast'
 import { visit } from 'unist-util-visit'
 
 export default function remarkCodeTitles() {
-  return (tree: Parent) =>
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return (tree: any) =>
     visit(tree, 'code', (node: Code, index) => {
       const nodeLang = node.lang || ''
       let language = ''

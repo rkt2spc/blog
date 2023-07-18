@@ -1,10 +1,13 @@
 'use client'
 
 import Image from 'next/image'
+
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
 
 import { PostMetadata } from '@/types'
+
+import { siteMetadata } from '@/data'
 
 export default function PostListItem({
   slug,
@@ -14,7 +17,8 @@ export default function PostListItem({
   thumbnail,
   tags,
 }: PostMetadata) {
-  const dateStr = date.toLocaleDateString('en-us', {
+  const { locale } = siteMetadata
+  const dateStr = date.toLocaleDateString(locale, {
     year: 'numeric',
     month: 'short',
     day: 'numeric',

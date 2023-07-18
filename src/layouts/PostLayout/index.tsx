@@ -1,9 +1,11 @@
 import { PropsWithChildren } from 'react'
 
-import { PostMetadata } from '@/types'
-
 import Tag from '@/components/Tag'
 import Emoji from '@/components/Emoji'
+
+import { PostMetadata } from '@/types'
+
+import { siteMetadata } from '@/data'
 
 export type PostLayoutProps = PropsWithChildren & {
   postMetadata: PostMetadata
@@ -21,7 +23,8 @@ export default function PostLayout({ postMetadata, children }: PostLayoutProps) 
 
   const { title, date, readingMinutes, tags, draft } = postMetadata
 
-  const dateStr = date.toLocaleDateString('en-US', {
+  const { locale } = siteMetadata
+  const dateStr = date.toLocaleDateString(locale, {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
