@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react'
 
 import Tag from '@/components/Tag'
 import Emoji from '@/components/Emoji'
+import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 
 import { PostMetadata } from '@/types'
 import { generateArticleJsonLdFromPostMetadata } from '@/lib/site'
@@ -40,6 +41,7 @@ export default async function PostLayout({ postMetadata, children }: PostLayoutP
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd, null, 2) }}
       />
+      <ScrollTopAndComment />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="pb-3 space-y-1 text-center">
           <div>

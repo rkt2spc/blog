@@ -12,5 +12,8 @@
   "locale": "en-US",
   "numLatestPosts": 3,
   "postsPerPage": 5,
-  "host": "https://rkt2spc.com"
+  "host": "https://rkt2spc.com",
+  "comment": {
+    "enabled": false
+  }
 }
