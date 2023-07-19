@@ -1,6 +1,5 @@
 import { memo } from 'react'
 import { Metadata } from 'next'
-
 import { getMDXComponent } from 'mdx-bundler/client'
 
 import { Components } from '@/components/MDX'
