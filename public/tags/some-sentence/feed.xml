@@ -1,0 +1,21 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tuan&#39;s Corner</title>
+    <link>https://rkt2spc.com/blog</link>
+    <description>Tuan&#39;s Digital Home</description>
+    <language>en-us</language>
+    <managingEditor>nmtuan.dev@gmail.com (Tuan M Nguyen)</managingEditor>
+    <webMaster>nmtuan.dev@gmail.com (Tuan M Nguyen)</webMaster>
+    <lastBuildDate>Sun, 31 Jan 2021 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://rkt2spc.com/tags/some-sentence/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <guid>https://rkt2spc.com/blog/my-fancy-title</guid>
+      <title>My fancy title</title>
+      <link>https://rkt2spc.com/blog/my-fancy-title</link>
+      <description>hehe</description>
+      <pubDate>Sun, 31 Jan 2021 00:00:00 GMT</pubDate>
+      <author>nmtuan.dev@gmail.com (Tuan M Nguyen)</author>
+      <category>hello</category><category>some-sentence</category><category>all</category>
+    </item>
+  </channel>
+</rss>

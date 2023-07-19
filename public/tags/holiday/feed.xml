@@ -1,0 +1,30 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tuan&#39;s Corner</title>
+    <link>https://rkt2spc.com/blog</link>
+    <description>Tuan&#39;s Digital Home</description>
+    <language>en-us</language>
+    <managingEditor>nmtuan.dev@gmail.com (Tuan M Nguyen)</managingEditor>
+    <webMaster>nmtuan.dev@gmail.com (Tuan M Nguyen)</webMaster>
+    <lastBuildDate>Sat, 15 Jul 2017 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://rkt2spc.com/tags/holiday/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <guid>https://rkt2spc.com/blog/something</guid>
+      <title>Something</title>
+      <link>https://rkt2spc.com/blog/something</link>
+      <description>Something cool I guess?</description>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 GMT</pubDate>
+      <author>nmtuan.dev@gmail.com (Tuan M Nguyen)</author>
+      <category>holiday</category><category>canada</category><category>images</category><category>all</category>
+    </item>
+    <item>
+      <guid>https://rkt2spc.com/blog/pictures-of-canada</guid>
+      <title>O Canada</title>
+      <link>https://rkt2spc.com/blog/pictures-of-canada</link>
+      <description>The scenic lands of Canada featuring maple leaves, snow-capped mountains, turquoise lakes and Toronto. Take in the sights in this photo gallery exhibition and see how easy it is to replicate with some MDX magic and tailwind classes.</description>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 GMT</pubDate>
+      <author>nmtuan.dev@gmail.com (Tuan M Nguyen)</author>
+      <category>holiday</category><category>canada</category><category>images</category><category>all</category>
+    </item>
+  </channel>
+</rss>

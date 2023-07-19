@@ -1,3 +1,5 @@
+import 'server-only'
+
 import { Metadata } from 'next'
 
 import { deepMerge } from '@/lib/util'

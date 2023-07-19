@@ -2,6 +2,9 @@
   "title": "Tuan's Corner",
   "description": "Tuan's Digital Home",
   "author": "Tuan M Nguyen",
+  "contact": {
+    "email": "nmtuan.dev@gmail.com"
+  },
   "source": "https://github.com/rkt2spc/blog",
   "nickname": "rkt2spc",
   "siteLogo": "/static/images/logo.svg",

@@ -1,3 +1,5 @@
+import 'server-only'
+
 import { PostMetadata } from '@/types'
 
 import { Article, WithContext } from 'schema-dts'

@@ -16,9 +16,10 @@ import { PropsWithChildren } from 'react'
 import SiteLayout from '@/layouts/SiteLayout'
 import Providers from './providers'
 
-import { getMetadata } from '@/lib/site'
+import { getMetadata, generateRss } from '@/lib/site'
 
 export async function generateMetadata(): Promise<Metadata> {
+  await generateRss()
   return await getMetadata()
 }
 

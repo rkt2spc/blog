@@ -1,0 +1,30 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tuan&#39;s Corner</title>
+    <link>https://rkt2spc.com/blog</link>
+    <description>Tuan&#39;s Digital Home</description>
+    <language>en-us</language>
+    <managingEditor>nmtuan.dev@gmail.com (Tuan M Nguyen)</managingEditor>
+    <webMaster>nmtuan.dev@gmail.com (Tuan M Nguyen)</webMaster>
+    <lastBuildDate>Sat, 15 Jul 2017 00:00:00 GMT</lastBuildDate>
+    <atom:link href="https://rkt2spc.com/tags/markdown/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <guid>https://rkt2spc.com/blog/mathematics</guid>
+      <title>Mathematics Test</title>
+      <link>https://rkt2spc.com/blog/mathematics</link>
+      <description>Something cool I guess?</description>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 GMT</pubDate>
+      <author>nmtuan.dev@gmail.com (Tuan M Nguyen)</author>
+      <category>markdown</category><category>math</category><category>all</category>
+    </item>
+    <item>
+      <guid>https://rkt2spc.com/blog/code-sample</guid>
+      <title>Sample .md file</title>
+      <link>https://rkt2spc.com/blog/code-sample</link>
+      <description>Example of a markdown file with code blocks and syntax highlighting</description>
+      <pubDate>Tue, 08 Mar 2016 00:00:00 GMT</pubDate>
+      <author>nmtuan.dev@gmail.com (Tuan M Nguyen)</author>
+      <category>markdown</category><category>code</category><category>features</category><category>all</category>
+    </item>
+  </channel>
+</rss>
