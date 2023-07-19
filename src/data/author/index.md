@@ -15,12 +15,61 @@ socials:
 
 # About me
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+I'm a software engineer with a quite versatile background. I can do:
 
-# Overview
+- Frontend development with React / Typescript / NextJS
+- Backend development with Go / Ruby / NodeJs.
+- SRE / SysOps works with AWS / Azure / Kubernetes.
+- Data engineering with Scala / Spark.
+  
+I learn new technologies whenever I'm interested or as the job required. I don't limit myself to the typical software engineer archetypes. To me, the thing I build is more important than what I build it with, and there is no excuse for not making myself capable.
 
-Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
+In my spare time, I hang out on [StackOverflow](https://stackoverflow.com/users/4318281), contribute to open-source projects and tend to this blog.
 
-# More description
+# Timeline
 
-At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+Here's a brief timeline of my life events. If you're interested to know more about me professionally, contact me on [LinkedIn](https://www.linkedin.com/in/mntuan/) or drop me an email.
+
+## 2023
+
+- 👼 Became a father
+- 🖋 Made this blog
+- 📚 Learned [Typescript](https://www.typescriptlang.org), [NextJs](https://nextjs.org), [Scala](https://www.scala-lang.org), [Spark](https://spark.apache.org), [Rust](https://www.rust-lang.org/)
+
+## 2022
+
+- 💼 Joined [Motional](https://motional.com), a leading self-driving car company
+- 💍 Got married
+
+## 2021
+
+- 🎉 Got promoted to Lead/Staff Software Engineer
+- 👨‍🎓 Certified as a [Microsoft Azure Associate Administrator](https://www.credly.com/badges/8e59fe3e-25ae-46b7-8548-7e1faa0ef81f)
+
+## 2020
+
+- 👨‍🎓 Certified as an [AWS Professional Solutions Architect](https://www.youracclaim.com/badges/5a34964c-4c80-4882-90a2-9947ec8f4a44)
+- 👨‍🎓 Certified as a [Kubernetes Administrator](https://www.youracclaim.com/badges/f9ba6e7c-d8bd-4f34-b06d-af718fb8087b?source=linked_in_profile)
+- 🏔 Trekked the [Annapurna](https://en.wikipedia.org/wiki/Annapurna) base camp in Nepal
+
+## 2019
+
+- 🎉 Got promoted to Senior Software Engineer
+- 🛫 Moved to Singapore
+- 📚 Learned [Python](https://www.python.org), [React](https://react.dev)
+
+## 2018
+
+- 💼 Joined [Grab](https://www.crunchbase.com/organization/grabtaxi), Southeast Asia's biggest ride-hailing company
+
+## 2017
+
+- 👨‍🎓 Graduated from [Vietnam National University - Ho Chi Minh University of Science](https://www.hcmus.edu.vn)
+- 💼 Joined [Misfit Wearables](https://www.crunchbase.com/organization/misfit-wearables), a fast-growing startup focused on fitness wearable technologies
+- 📚 Learned [NodeJs](https://nodejs.org), [Golang](https://go.dev), [Ruby on Rails](https://rubyonrails.org), [OAuth2](https://datatracker.ietf.org/doc/html/rfc6749), [AWS](https://aws.amazon.com), [Kubernetes](https://kubernetes.io)
+- 👨‍💻 Made my first open-source contribution to [Mongoose](https://github.com/Automattic/mongoose/pull/5338) - the most popular ORM for MongoDB
+- 📍 Moved out
+
+## 1995
+
+- 👶 Hello World!
