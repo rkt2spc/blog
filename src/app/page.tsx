@@ -14,7 +14,7 @@ export default async function Home() {
     title: `Nice to meet you. I'm Tuan`,
     titleEmoji: '👋',
     message: dedent(
-      `I am a software engineer currently enjoying backend development.
+      `I am a software engineer currently working in Singapore.
       Welcome to my digital home - where I collect my thoughts and learnings on various topics (mostly related to technology). I hope my sharing can be useful to you!
       Enjoy your stay!`
     ),
