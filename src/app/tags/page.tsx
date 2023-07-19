@@ -1,7 +1,15 @@
+import { Metadata } from 'next'
+
 import PageLayout from '@/layouts/PageLayout'
 import Tag from '@/components/Tag'
 
+import { siteMetadata } from '@/data'
 import { getAllPostsTag } from '@/lib/mdx'
+
+export const metadata: Metadata = {
+  title: `Tags | ${siteMetadata.title}`,
+  description: `Post tags @ ${siteMetadata.title}`,
+}
 
 export default async function TagsPage() {
   const tags = await getAllPostsTag()

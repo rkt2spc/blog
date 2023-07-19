@@ -18,9 +18,38 @@ import Providers from './providers'
 
 import { siteMetadata } from '@/data'
 
-export const metadata: Metadata = {
-  title: siteMetadata.title,
-  description: siteMetadata.description,
+export async function generateMetadata(): Promise<Metadata> {
+  const { title, description, host } = siteMetadata
+
+  return {
+    title: title,
+    description: description,
+    icons: [
+      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
+      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
+      { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
+    ],
+    robots: {
+      follow: true,
+      index: true,
+    },
+    manifest: '/site.webmanifest',
+    themeColor: 'white',
+    openGraph: {
+      type: 'website',
+      title: title,
+      description: description,
+      siteName: title,
+      url: host,
+      images: [siteMetadata.siteThumbnail],
+    },
+    twitter: {
+      title: title,
+      description: description,
+      card: 'summary_large_image',
+      images: [siteMetadata.siteThumbnail],
+    },
+  }
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {
@@ -47,13 +76,8 @@ export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html lang="en" className={htmlCls} suppressHydrationWarning>
       <head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+        {/* * TODO: Migrate mask-icon to Metadata object when NextJS support color attribute https://github.com/vercel/next.js/issues/52853 */}
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0ea5e9" />
-        <meta name="msapplication-TileColor" content="#da532c" />
-        <meta name="theme-color" content="#ffffff" />
       </head>
       <body className={bodyCls}>
         <Providers>

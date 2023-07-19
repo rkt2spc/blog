@@ -4,6 +4,7 @@
   "author": "Tuan M Nguyen",
   "source": "https://github.com/rkt2spc/blog",
   "nickname": "rkt2spc",
+  "siteThumbnail": "/static/images/site-thumbnail.webp",
   "locale": "en-US",
   "host": "https://rkt2spc.com"
 }
