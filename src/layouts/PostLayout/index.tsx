@@ -64,14 +64,18 @@ export default async function PostLayout({ postMetadata, children }: PostLayoutP
         </div>
         <div className="pt-4">
           {draft ? (
-            <div className="text-center p-10 text-3xl space-x-2">
-              <Emoji emoji="🚧" />
-              <Emoji emoji="🛠" />
-              <Emoji emoji="🚧" />
-              <span>Coming soon</span>
-              <Emoji emoji="🚧" />
-              <Emoji emoji="🛠" />
-              <Emoji emoji="🚧" />
+            <div className="flex flex-col gap-2 md:flex-row justify-center text-center content-center p-10 text-3xl">
+              <div className="space-x-2">
+                <Emoji emoji="🚧" />
+                <Emoji emoji="🛠" />
+                <Emoji emoji="🚧" />
+              </div>
+              <div>Coming soon</div>
+              <div className="space-x-2">
+                <Emoji emoji="🚧" />
+                <Emoji emoji="🛠" />
+                <Emoji emoji="🚧" />
+              </div>
             </div>
           ) : (
             children
