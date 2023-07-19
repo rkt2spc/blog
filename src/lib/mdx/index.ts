@@ -14,4 +14,5 @@ export { default as getPostsCountByTag } from './getPostsCountByTag'
 export { default as getPostsMetadataByTag } from './getPostsMetadataByTag'
 
 export { default as getPostBySlug } from './getPostBySlug'
+export { default as getPostMetadataBySlug } from './getPostMetadataBySlug'
 export { default as getAuthor } from './getAuthor'

@@ -3,12 +3,28 @@ import { Metadata } from 'next'
 import PageLayout from '@/layouts/PageLayout'
 import Tag from '@/components/Tag'
 
-import { siteMetadata } from '@/data'
 import { getAllPostsTag } from '@/lib/mdx'
+import { getMetadata } from '@/lib/site'
 
-export const metadata: Metadata = {
-  title: `Tags | ${siteMetadata.title}`,
-  description: `Post tags @ ${siteMetadata.title}`,
+import { siteMetadata } from '@/data'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `Tags | ${siteMetadata.title}`
+  const description = `Post tags @ ${siteMetadata.title}`
+
+  return getMetadata({
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: `${siteMetadata.host}/tags`,
+    },
+    twitter: {
+      title: title,
+      description: description,
+    },
+  })
 }
 
 export default async function TagsPage() {

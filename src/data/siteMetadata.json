@@ -6,5 +6,7 @@
   "nickname": "rkt2spc",
   "siteThumbnail": "/static/images/site-thumbnail.webp",
   "locale": "en-US",
+  "numLatestPosts": 3,
+  "postsPerPage": 5,
   "host": "https://rkt2spc.com"
 }

@@ -12,7 +12,6 @@ export default async function getPostsByTag(tag: string): Promise<Post[]> {
 
   const cachedPosts = cache.get<Post[]>(cacheKey)
   if (cachedPosts) {
-    cache
     return cachedPosts
   }
 

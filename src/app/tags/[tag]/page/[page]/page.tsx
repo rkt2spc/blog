@@ -1,7 +1,12 @@
+import { Metadata } from 'next'
+
 import PageLayout from '@/layouts/PageLayout'
 import PostList from '@/components/PostList'
 
 import { getAllPostsTag, getPostsCountByTag, getPostsMetadataByTag } from '@/lib/mdx'
+import { getMetadata } from '@/lib/site'
+
+import { siteMetadata } from '@/data'
 
 type PostListByTagPageParams = {
   tag: string
@@ -12,7 +17,7 @@ type PostListByTagPageProps = {
   params: PostListByTagPageParams
 }
 
-const POSTS_PER_PAGE = 5
+const POSTS_PER_PAGE = siteMetadata.postsPerPage
 
 export const dynamicParams = false
 
@@ -33,6 +38,26 @@ export async function generateStaticParams(): Promise<PostListByTagPageParams[]>
   }
 
   return params
+}
+
+export async function generateMetadata({ params }: PostListByTagPageProps): Promise<Metadata> {
+  const { tag, page } = params
+  const title = `${tag} | Page ${page} | ${siteMetadata.title}`
+  const description = `All posts with tag:${tag} (page ${page}) @ ${siteMetadata.title}`
+
+  return getMetadata({
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: `${siteMetadata.host}/tags/${tag}/page/${page}`,
+    },
+    twitter: {
+      title: title,
+      description: description,
+    },
+  })
 }
 
 export default async function PostListByTagPage({ params }: PostListByTagPageProps) {

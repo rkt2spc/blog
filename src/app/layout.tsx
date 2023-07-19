@@ -16,40 +16,10 @@ import { PropsWithChildren } from 'react'
 import SiteLayout from '@/layouts/SiteLayout'
 import Providers from './providers'
 
-import { siteMetadata } from '@/data'
+import { getMetadata } from '@/lib/site'
 
 export async function generateMetadata(): Promise<Metadata> {
-  const { title, description, host } = siteMetadata
-
-  return {
-    title: title,
-    description: description,
-    icons: [
-      { rel: 'icon', type: 'image/png', sizes: '16x16', url: '/favicon-16x16.png' },
-      { rel: 'icon', type: 'image/png', sizes: '32x32', url: '/favicon-32x32.png' },
-      { rel: 'apple-touch-icon', sizes: '180x180', url: '/apple-touch-icon.png' },
-    ],
-    robots: {
-      follow: true,
-      index: true,
-    },
-    manifest: '/site.webmanifest',
-    themeColor: 'white',
-    openGraph: {
-      type: 'website',
-      title: title,
-      description: description,
-      siteName: title,
-      url: host,
-      images: [siteMetadata.siteThumbnail],
-    },
-    twitter: {
-      title: title,
-      description: description,
-      card: 'summary_large_image',
-      images: [siteMetadata.siteThumbnail],
-    },
-  }
+  return await getMetadata()
 }
 
 export default function RootLayout({ children }: PropsWithChildren) {

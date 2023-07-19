@@ -7,6 +7,8 @@ import PostList from '@/components/PostList'
 
 import { getBatchPostsMetadata } from '@/lib/mdx'
 
+import { siteMetadata } from '@/data'
+
 export default async function Home() {
   const bannerProps: HomeBannerProps = {
     title: `Nice to meet you. I'm Tuan`,
@@ -18,7 +20,8 @@ export default async function Home() {
     ),
   }
 
-  const postsMetadata = await getBatchPostsMetadata({ offset: 0, limit: 3 })
+  const { numLatestPosts } = siteMetadata
+  const postsMetadata = await getBatchPostsMetadata({ offset: 0, limit: numLatestPosts })
 
   return (
     <div className="space-y-8">

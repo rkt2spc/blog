@@ -1,5 +1,11 @@
-import { getAllPostsTag } from '@/lib/mdx'
+import { Metadata } from 'next'
+
 import PostListByTagPage from './page/[page]/page'
+
+import { getAllPostsTag } from '@/lib/mdx'
+import { getMetadata } from '@/lib/site'
+
+import { siteMetadata } from '@/data'
 
 type BlogByTagPageParams = {
   tag: string
@@ -14,6 +20,26 @@ export const dynamicParams = false
 export async function generateStaticParams(): Promise<BlogByTagPageParams[]> {
   const tags = await getAllPostsTag()
   return Object.keys(tags).map((tag) => ({ tag: tag }))
+}
+
+export async function generateMetadata({ params }: BlogByTagPageProps): Promise<Metadata> {
+  const { tag } = params
+  const title = `${tag} | ${siteMetadata.title}`
+  const description = `All posts with tag:${tag} @ ${siteMetadata.title}`
+
+  return getMetadata({
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: `${siteMetadata.host}/tags/${tag}`,
+    },
+    twitter: {
+      title: title,
+      description: description,
+    },
+  })
 }
 
 export default async function BlogByTagPage({ params }: BlogByTagPageProps) {

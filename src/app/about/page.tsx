@@ -1,5 +1,5 @@
-import { Metadata } from 'next'
 import { memo } from 'react'
+import { Metadata } from 'next'
 
 import { getMDXComponent } from 'mdx-bundler/client'
 
@@ -9,12 +9,27 @@ import PageLayout from '@/layouts/PageLayout'
 import AuthorLayout from '@/layouts/AuthorLayout'
 
 import { getAuthor } from '@/lib/mdx'
+import { getMetadata } from '@/lib/site'
 
 import { siteMetadata } from '@/data'
 
-export const metadata: Metadata = {
-  title: `About | ${siteMetadata.title}`,
-  description: `About ${siteMetadata.author}`,
+export async function generateMetadata(): Promise<Metadata> {
+  const title = `About Me | ${siteMetadata.title}`
+  const description = `About ${siteMetadata.author}`
+
+  return getMetadata({
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      url: `${siteMetadata.host}/about`,
+    },
+    twitter: {
+      title: title,
+      description: description,
+    },
+  })
 }
 
 async function AboutPage() {
