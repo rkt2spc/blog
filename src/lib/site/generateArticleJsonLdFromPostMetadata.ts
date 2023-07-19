@@ -6,7 +6,7 @@ import { siteMetadata } from '@/data'
 
 export default async function generateArticleJsonLdFromPostMetadata(postMd: PostMetadata) {
   const { slug, title, summary, thumbnail, date } = postMd
-  const { host, author, siteLogo } = siteMetadata
+  const { host, author, siteLogo, siteThumbnail } = siteMetadata
 
   const thumbnailUrl = thumbnail.startsWith('/') ? `${host}${thumbnail}` : thumbnail
 
@@ -19,12 +19,13 @@ export default async function generateArticleJsonLdFromPostMetadata(postMd: Post
     },
     headline: title,
     description: summary,
-    image: thumbnailUrl ? [{ '@type': 'ImageObject', url: thumbnailUrl }] : [],
+    image: [{ '@type': 'ImageObject', url: thumbnailUrl || siteThumbnail }],
     datePublished: date.toISOString(),
     dateModified: new Date().toISOString(),
     author: {
       '@type': 'Person',
       name: author,
+      url: `${host}/about`,
     },
     publisher: {
       '@type': 'Organization',
