@@ -41,7 +41,40 @@ async function getDefaultMetadata(): Promise<Metadata> {
   return metadata
 }
 
-export default async function getMetadata(overrides?: Metadata): Promise<Metadata> {
+type MetadataOverrides = {
+  title?: string
+  description?: string
+  url?: string
+  thumbnail?: string
+  openGraphType?: 'website' | 'article'
+}
+
+export default async function getMetadata(overrides?: MetadataOverrides): Promise<Metadata> {
   const defaultMetadata = await getDefaultMetadata()
-  return overrides ? deepMerge(defaultMetadata, overrides) : defaultMetadata
+
+  if (!overrides) {
+    return defaultMetadata
+  }
+
+  const { title, description, url, thumbnail, openGraphType } = overrides
+
+  const overridesMD: Metadata = {
+    title: title,
+    description: description,
+    alternates: url ? { canonical: url } : undefined,
+    openGraph: {
+      type: openGraphType || 'website',
+      title: title,
+      description: description,
+      url: url,
+      images: thumbnail ? [thumbnail] : undefined,
+    },
+    twitter: {
+      title: title,
+      description: description,
+      images: thumbnail ? [thumbnail] : undefined,
+    },
+  }
+
+  return deepMerge(defaultMetadata, overridesMD)
 }

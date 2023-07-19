@@ -42,22 +42,12 @@ export async function generateStaticParams(): Promise<PostListByTagPageParams[]>
 
 export async function generateMetadata({ params }: PostListByTagPageProps): Promise<Metadata> {
   const { tag, page } = params
+
   const title = `${tag} | Page ${page} | ${siteMetadata.title}`
   const description = `All posts with tag:${tag} (page ${page}) @ ${siteMetadata.title}`
+  const url = `${siteMetadata.host}/tags/${tag}/page/${page}`
 
-  return getMetadata({
-    title: title,
-    description: description,
-    openGraph: {
-      title: title,
-      description: description,
-      url: `${siteMetadata.host}/tags/${tag}/page/${page}`,
-    },
-    twitter: {
-      title: title,
-      description: description,
-    },
-  })
+  return getMetadata({ title, description, url })
 }
 
 export default async function PostListByTagPage({ params }: PostListByTagPageProps) {

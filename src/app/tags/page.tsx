@@ -11,20 +11,9 @@ import { siteMetadata } from '@/data'
 export async function generateMetadata(): Promise<Metadata> {
   const title = `Tags | ${siteMetadata.title}`
   const description = `Post tags @ ${siteMetadata.title}`
+  const url = `${siteMetadata.host}/tags`
 
-  return getMetadata({
-    title: title,
-    description: description,
-    openGraph: {
-      title: title,
-      description: description,
-      url: `${siteMetadata.host}/tags`,
-    },
-    twitter: {
-      title: title,
-      description: description,
-    },
-  })
+  return getMetadata({ title, description, url })
 }
 
 export default async function TagsPage() {

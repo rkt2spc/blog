@@ -33,23 +33,10 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 
   const title = `${postMetadata.title} | ${siteMetadata.title}`
   const description = `${postMetadata.summary}`
+  const url = `${siteMetadata.host}/blog/${slug.join('/')}`
+  const thumbnail = postMetadata.thumbnail
 
-  return getMetadata({
-    title: title,
-    description: description,
-    openGraph: {
-      type: 'article',
-      title: title,
-      description: description,
-      url: `${siteMetadata.host}/blog/${slug.join('/')}`,
-      ...(postMetadata.thumbnail ? { images: [postMetadata.thumbnail] } : {}),
-    },
-    twitter: {
-      title: title,
-      description: description,
-      ...(postMetadata.thumbnail ? { images: [postMetadata.thumbnail] } : {}),
-    },
-  })
+  return getMetadata({ title, description, url, thumbnail, openGraphType: 'article' })
 }
 
 async function PostPage({ params }: PostPageProps) {

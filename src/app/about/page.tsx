@@ -16,20 +16,9 @@ import { siteMetadata } from '@/data'
 export async function generateMetadata(): Promise<Metadata> {
   const title = `About Me | ${siteMetadata.title}`
   const description = `About ${siteMetadata.author}`
+  const url = `${siteMetadata.host}/about`
 
-  return getMetadata({
-    title: title,
-    description: description,
-    openGraph: {
-      title: title,
-      description: description,
-      url: `${siteMetadata.host}/about`,
-    },
-    twitter: {
-      title: title,
-      description: description,
-    },
-  })
+  return getMetadata({ title, description, url })
 }
 
 async function AboutPage() {

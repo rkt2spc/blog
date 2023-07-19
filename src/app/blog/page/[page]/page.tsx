@@ -33,20 +33,9 @@ export async function generateMetadata({ params }: PostsListPageProps): Promise<
 
   const title = `Blog | Page ${page} | ${siteMetadata.title}`
   const description = `Blog posts (page ${page}) @ ${siteMetadata.title}`
+  const url = `${siteMetadata.host}/blog/page/${page}`
 
-  return getMetadata({
-    title: title,
-    description: description,
-    openGraph: {
-      title: title,
-      description: description,
-      url: `${siteMetadata.host}/blog/page/${page}`,
-    },
-    twitter: {
-      title: title,
-      description: description,
-    },
-  })
+  return getMetadata({ title, description, url })
 }
 
 export default async function PostsListPage({ params }: PostsListPageProps) {
