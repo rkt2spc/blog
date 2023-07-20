@@ -15,9 +15,9 @@ socials:
 
 # About me
 
-I'm a software engineer with a quite versatile background. I can do:
+I'm a software engineer with a versatile background. I can do:
 
-- Frontend development with React / Typescript / NextJS
+- Frontend development with React / Typescript / NextJS.
 - Backend development with Go / Ruby / NodeJs.
 - SRE / SysOps works with AWS / Azure / Kubernetes.
 - Data engineering with Scala / Spark.
