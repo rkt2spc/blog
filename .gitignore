@@ -34,5 +34,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# built images
-/public/blog/**/images/
+# Generated contents
+/public/static/blog/**/images/
+/public/**/feed.xml
