@@ -1,11 +1,10 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
+import { useInView } from 'react-intersection-observer'
 
 import Giscus from '@giscus/react'
-
-import Button from '@/components/Button'
 
 import { siteMetadata } from '@/data'
 
@@ -21,7 +20,11 @@ export default function Comments({ topic, className }: CommentsProps) {
   const { theme, resolvedTheme } = useTheme()
   const commentsTheme = theme === 'dark' || resolvedTheme === 'dark' ? 'dark' : 'light'
 
-  const [hidden, setHidden] = useState(true)
+  const { ref, inView } = useInView({ triggerOnce: true })
+
+  const [show, setShow] = useState(false)
+
+  useEffect(() => setShow(true), [inView])
 
   if (!enabled || !topic) {
     return null
@@ -31,20 +34,9 @@ export default function Comments({ topic, className }: CommentsProps) {
 
   const cls = ['flex justify-center', className || ''].join(' ').trim()
 
-  const buttonCls = [
-    'text-gray-900 dark:text-gray-100',
-    'hover:text-primary-500 dark:hover:text-secondary-500',
-  ]
-    .join(' ')
-    .trim()
-
   return (
-    <div id={componentId} className={cls}>
-      {hidden ? (
-        <Button className={buttonCls} onClick={() => setHidden(false)}>
-          Load Comments
-        </Button>
-      ) : (
+    <div id={componentId} ref={ref} className={cls}>
+      {show && (
         <Giscus
           repo={`${owner}/${repo}`}
           repoId={repoId}
