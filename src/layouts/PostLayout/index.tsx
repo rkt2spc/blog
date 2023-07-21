@@ -79,11 +79,13 @@ export default async function PostLayout({ postMetadata, children }: PostLayoutP
               </div>
             </div>
           ) : (
-            children
+            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+              <div>{children}</div>
+              <div className="mt-12 pt-4">
+                <Comments topic={`Post: ${title}`} />
+              </div>
+            </div>
           )}
-        </div>
-        <div className="pt-4">
-          <Comments topic={`Post: ${title}`} />
         </div>
       </div>
     </section>
