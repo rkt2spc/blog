@@ -83,7 +83,7 @@ server_names = [
 ```
 
 - [Cloudflare] is currently one of the most popular Content Delivery Network (CDN) provider. They own the DNS resolver at [**1.1.1.1**](https://1.1.1.1)
-- [Quad9] they are reputable, secure, privacy focused DNS service provider based in Switzerland. They own the DNS resolver at **9.9.9.9**
+- [Quad9] they are a reputable, security and privacy focused DNS service provider based in Switzerland. They own the DNS resolver at **9.9.9.9**
 - [Google] well... they are Google. They own the DNS resolvers at **8.8.8.8** and **8.8.4.4**
 
 ### Starting the proxy
@@ -107,7 +107,7 @@ All that left is to configure MacOS to use the proxy.
 - View details of the network (Wifi / Ether) you're using
 - Open the **DNS** tab, remove all other entries and put **127.0.0.1** (*localhost*) as your resolver.
 
-![DNS Config MacOS](./dns-config-macos.png)
+![DNS Config MacOS](./dns-config-macos.webp)
 
 Note: On MacOS, there's a nifty [xbar] plugin called [dnscrypt-proxy-switcher](https://xbarapp.com/docs/plugins/Network/dnscrypt-proxy-switcher.10s.sh.html) that let you do these steps easily.
 
