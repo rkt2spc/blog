@@ -2,12 +2,12 @@ import { ComponentPropsWithoutRef } from 'react'
 
 import ButtonBase from './Base'
 
-export default function ButtonPrimary({ className, ...rest }: ComponentPropsWithoutRef<'button'>) {
+export default function ButtonInfo({ className, ...rest }: ComponentPropsWithoutRef<'button'>) {
   const cls = [
     'shadow focus:shadow-outline-blue',
-    'bg-blue-500 hover:bg-blue-600 dark:hover:bg-blue-400',
+    'bg-sky-400 hover:bg-sky-500 dark:hover:bg-sky-300',
     'text-white',
-    className,
+    className || '',
   ]
     .join(' ')
     .trim()

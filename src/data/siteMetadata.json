@@ -13,7 +13,17 @@
   "numLatestPosts": 3,
   "postsPerPage": 5,
   "host": "https://rkt2spc.com",
-  "comment": {
-    "enabled": false
+  "comments": {
+    "enabled": true,
+    "componentId": "comments",
+    "giscus": {
+      "owner": "rkt2spc",
+      "repo": "blog",
+      "repoId": "MDEwOlJlcG9zaXRvcnkzMTExNjQ0MTU=",
+      "category": "General",
+      "categoryId": "DIC_kwDOEov9_84CX7vo",
+      "reactionsEnabled": true,
+      "language": "en"
+    }
   }
 }

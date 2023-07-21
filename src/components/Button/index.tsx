@@ -1,10 +1,12 @@
-import ButtonProps from './props'
+import { ComponentPropsWithoutRef } from 'react'
+
 import ButtonBase from './Base'
 import ButtonPrimary from './Primary'
 import ButtonDanger from './Danger'
+import ButtonInfo from './Info'
 
-type ButtonPropsWithVariant = ButtonProps & {
-  variant: 'primary' | 'danger'
+type ButtonPropsWithVariant = ComponentPropsWithoutRef<'button'> & {
+  variant?: 'primary' | 'info' | 'danger'
 }
 
 export default function Button({ variant, ...rest }: ButtonPropsWithVariant) {
@@ -13,6 +15,8 @@ export default function Button({ variant, ...rest }: ButtonPropsWithVariant) {
       return <ButtonPrimary {...rest} />
     case 'danger':
       return <ButtonDanger {...rest} />
+    case 'info':
+      return <ButtonInfo {...rest} />
     default:
       return <ButtonBase {...rest} />
   }

@@ -1,16 +1,15 @@
-import ButtonProps from './props'
+import { ComponentPropsWithoutRef } from 'react'
 
-export default function ButtonBase({ className = '', children }: ButtonProps) {
+export default function ButtonBase({ className, ...rest }: ComponentPropsWithoutRef<'button'>) {
   const cls = [
     'rounded-lg',
     'border border-transparent',
-    'shadow',
     'px-4 py-2',
     'transition-colors duration-150',
-    className,
+    className || '',
   ]
     .join(' ')
     .trim()
 
-  return <button className={cls}>{children}</button>
+  return <button className={cls} {...rest} />
 }

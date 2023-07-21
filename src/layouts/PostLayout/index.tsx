@@ -3,6 +3,7 @@ import { PropsWithChildren } from 'react'
 import Tag from '@/components/Tag'
 import Emoji from '@/components/Emoji'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import Comments from '@/components/Comments'
 
 import { PostMetadata } from '@/types'
 import { generateArticleJsonLdFromPostMetadata } from '@/lib/site'
@@ -80,6 +81,9 @@ export default async function PostLayout({ postMetadata, children }: PostLayoutP
           ) : (
             children
           )}
+        </div>
+        <div className="pt-4">
+          <Comments topic={`Post: ${title}`} />
         </div>
       </div>
     </section>

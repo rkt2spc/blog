@@ -8,7 +8,7 @@ import CommentIcon from './comment.svg'
 import TopIcon from './top.svg'
 
 export default function ScrollTopAndComment() {
-  const { comment } = siteMetadata
+  const { comments } = siteMetadata
 
   const [show, setShow] = useState(false)
 
@@ -27,7 +27,7 @@ export default function ScrollTopAndComment() {
   }
 
   const handleScrollToComment = () => {
-    const elem = document.getElementById('comment')
+    const elem = document.getElementById(comments.componentId)
     if (elem) elem.scrollIntoView()
   }
 
@@ -37,7 +37,7 @@ export default function ScrollTopAndComment() {
 
   return (
     <div className={cls}>
-      {comment.enabled && (
+      {comments.enabled && (
         <button
           aria-label="Scroll To Comment"
           type="button"
