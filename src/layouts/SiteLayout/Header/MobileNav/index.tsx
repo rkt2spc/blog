@@ -29,6 +29,17 @@ export default function MobileNav({ links }: MobileNavProps) {
     })
   }
 
+  const drawerCls = [
+    'fixed top-0 left-0',
+    'h-screen w-full',
+    'z-40',
+    'bg-gray-200 dark:bg-gray-800 opacity-95',
+    'transition-transform duration-300 ease-in-out',
+    navShow ? 'translate-x-0' : 'translate-x-full',
+  ]
+    .join(' ')
+    .trim()
+
   return (
     <div className="sm:hidden">
       <button
@@ -39,11 +50,7 @@ export default function MobileNav({ links }: MobileNavProps) {
       >
         <MenuIcon className="text-gray-900 dark:text-gray-100" />
       </button>
-      <div
-        className={`fixed top-0 left-0 z-10 h-screen w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
-          navShow ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
+      <div className={drawerCls}>
         <div className="flex justify-end">
           <button
             type="button"
@@ -54,19 +61,18 @@ export default function MobileNav({ links }: MobileNavProps) {
             <CloseIcon className="text-gray-900 dark:text-gray-100" />
           </button>
         </div>
-        <nav className="fixed mt-8 h-full">
+        <nav className="h-full overflow-y-auto pb-64">
           {Object.entries(links).map(([key, link]) => (
-            <div key={key} className="px-12 py-4">
-              <Link
-                href={link.href}
-                className="text-2xl text-gray-900 dark:text-gray-100"
-                active={currentPath === `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${link.href}`}
-                activeClassName="font-semibold text-primary-500 dark:text-secondary-500"
-                onClick={onToggleNav}
-              >
-                {link.title}
-              </Link>
-            </div>
+            <Link
+              key={key}
+              href={link.href}
+              className="text-2xl text-gray-900 dark:text-gray-100 block px-12 py-4"
+              active={currentPath === `${process.env.NEXT_PUBLIC_BASE_PATH || ''}${link.href}`}
+              activeClassName="font-semibold text-primary-500 dark:text-secondary-500"
+              onClick={onToggleNav}
+            >
+              {link.title}
+            </Link>
           ))}
         </nav>
       </div>

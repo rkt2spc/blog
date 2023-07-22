@@ -9,7 +9,7 @@ export default function Header() {
   const cls = [
     'py-4 sm:mb-4',
     'w-full',
-    'sticky top-0 z-40',
+    'sticky top-0 z-30',
     'backdrop-blur bg-white/75 dark:bg-neutral-900/75',
   ]
     .join(' ')
