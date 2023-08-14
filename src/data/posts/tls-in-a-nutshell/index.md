@@ -3,7 +3,6 @@ title: TLS in a Nutshell
 date: '2023-07-21'
 tags: ['tls', 'ssl', 'https', 'security', 'privacy']
 summary: A brief explanation of Transport Layer Security (TLS)
-thumbnail: /static/blog/tls-in-a-nutshell/thumbnail.jpg
 draft: true
 ---
 

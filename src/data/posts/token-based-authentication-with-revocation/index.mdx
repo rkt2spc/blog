@@ -1,0 +1,134 @@
+---
+title: Token-based Authentication with Revocation
+date: '2023-08-14'
+tags: ['engineering', 'authentication', 'jwt']
+summary: A method of implementing revocable token based authentication
+---
+
+# Authentication and Authorization
+
+**Authentication**: the process by which we confirm that a party is who
+they says they are, we often refer to that party as the principal
+
+**Authorization**: the mechanism by which we confine a principal to
+the actions that we allow them to do
+
+# Authentication Approaches
+
+## Stateful Authentication
+
+When a principal logs in to our system we create an entry on a stateful
+storage (we call this the session store) and give the session entry ID
+back to the entity for subsequent interactions.
+
+Session ID must be generated in a way that it is unique and
+cryptographically safe.
+
+![Stateful Authentication](./stateful-authentication.webp)
+
+Note: Only the cryptographic hashes of the passwords are stored, not their raw form.
+
+## Stateless Authentication
+
+When a principal logs in to our system, we create a proof-of-login token that will be returned to the principal for subsequent interactions. And, for it to be called stateless, we **DO NOT** store it anywhere within our system.
+
+To achieve this, the login token must be:
+
+- Universally unique
+- Cryptographically signed to ensure integrity with optional encryption on top
+
+![Stateless Authentication](./stateless-authentication.webp)
+
+## Cryptographic Signing
+
+**Requirement**: The content of a token **MUST NOT** be modified by anyone else after creation.
+
+- This is done by attaching a digital signature along with the token payload. The signature is created by cryptographically hashing the payload and a secret.
+- Every time a token is received, the payload will be hashed again with the secret to generate an authentic signature, this signature will then be compare to the attached signature in the token.
+- Due to the nature of cryptographic hash. Third-parties cannot generate an authentic signature without knowing the secret. If the content was modified the hash result will change. Thus failing signature validation.
+
+Example: [JSON Web Token](https://jwt.io)
+
+Generate: JWT = **header.payload.<span className="text-sky-500">signature</span>**  
+Where **<span className="text-sky-500">signature</span>** = Hash(base64(**header**).base64(**payload**), **<span className="text-green-500">secret</span>**))
+
+Validate: JWT = **header.payload.<span className="text-red-600">signature</span>**  
+Check if **<span className="text-red-600">signature</span>** == Hash(base64(**header**).base64(**payload**), **<span className="text-green-500">secret</span>**))
+
+## Encrypting
+
+**Requirement**: The content of a token MUST NOT be readable by anyone else other than the issuer.
+
+- This is done by encrypting the token with a secret. Should be done with a secure cipher.
+
+Example: [JSON Web Encryption](https://tools.ietf.org/html/rfc7516)
+
+## Stateful vs Stateless
+
+| Stateful                                                                                                                                                                                  | Stateless                                                                                                                                                                                  |
+|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <p className="text-red-600">Need to maintain a storage</p><p className="text-red-600">Hard to scale</p><p className="text-red-600">Additional latency when querying the storage</p> | <p className="text-green-500">No storage to maintain</p><p className="text-green-500">Superb scaling</p><p className="text-green-500">Little to nothing additional latency</p> |
+| <p className="text-green-500">Easy to implement</p><p className="text-green-500">Revocation is simple</p> | <p className="text-red-600">HARD to do right</p><p className="text-red-600">Revocation is complicated</p> |
+
+# Truly Stateless?
+
+## Revocation
+
+**Requirements**:
+
+- Log out of the current session
+- Log out of all sessions
+- Log out specific sessions
+
+## Revocation in Stateful Authentication
+
+Simply delete all corresponding session entries in the session store
+
+## Revocation in Stateless Authentication
+
+How can we revoke tokens that we do not store?
+
+# Advanced Token Based Authentication
+
+## Access Token & Refresh Token
+
+To solve revocation, tokens are effectively categorized into 2 types: **Access Token** & [**Refresh Token**](https://datatracker.ietf.org/doc/html/rfc6749#section-1.5))
+
+**Access Token** is used for accessing protected resources. It should have a short to medium expire time.
+
+**Refresh Token** is used for acquiring new **Access Tokens** and MUST be stateful. If **Refresh Token** is stateless we will come back to the exact limitations encountered before (n + 1 problem). It should have a very long or forever expire time.
+
+Logging out the current session, all sessions, specific sessions are now just a simple delete of the corresponding **Refresh Tokens** in our database.
+
+![Access Tokens & Refresh Tokens](./access-tokens-refresh-tokens.webp)
+
+How is using **Refresh Tokens** differs from using a stateful session store?
+
+- Database retrieval for **Refresh Tokens** only happen once you require a new **Access Token** which is the interval of your **Access Token** expire time. Total database hit is much less than querying for login entries in the session store that happens every API call.
+- Refresh Tokens(s) travel through the internet in much less frequency than the traditional session ID. So in a sense, it is more secure.
+
+## Unexpired Access Token(s)
+
+In previous sections, we assumed that, using the **Access Token & Refresh Token** strategy, logging out current session, all sessions, specific sessions are now just a simple delete of the corresponding **Refresh Tokens** in our database.
+
+What will happen to the unexpired **Access Token(s)** after the deletion of corresponding **Refresh Tokens**?  
+They are still usable for accessing protected resources during their time-to-live
+
+## Blocking Revoked Access Tokens
+
+In order to invalidate unexpired **Access Token(s)**, we generate a block-list entry when a **Refresh Token** is revoked.
+
+Since every **Access Token** is generated by a source **Refresh Token**. We can simply embed the **Refresh Token ID** to the **Access Token**
+
+When we verify an access token, we can extract the source **Refresh Token ID** and make sure that it doesn't exist the the block list.
+
+=> What we are doing here is essentially having a session store for logout sessions
+
+How does the logout session store differ with traditional login session store?
+
+- It is much smaller. Users tend to stay logged in for a longer amount of time.
+- Each recorded logout session entry only need to exist for the time-to-live of generated Access Token(s) and can be cleaned up to reduce collection size.
+
+# References
+
+- The OAuth 2.0 Framework specification: https://tools.ietf.org/html/rfc6749
