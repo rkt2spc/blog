@@ -22,7 +22,7 @@ I'm a software engineer with a versatile background. I can do:
 - SRE / SysOps works with AWS / Azure / Kubernetes.
 - Data engineering with Scala / Spark.
   
-I learn new technologies whenever I'm interested or as the job required. I don't limit myself to the typical software engineer archetypes. To me, the thing I build is more important than what I build it with, and there is no excuse for not making myself capable.
+I learn new technologies whenever I'm interested or as the job requires. I don't limit myself to the typical software engineer archetypes. To me, the thing I build is more important than what I build it with, and there is no excuse for not making myself capable.
 
 In my spare time, I hang out on [StackOverflow](https://stackoverflow.com/users/4318281), contribute to open-source projects and tend to this blog.
 
