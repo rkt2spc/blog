@@ -34,6 +34,6 @@ indent_style = tab
 [*.bat]
 indent_style = tab
 
-[*.md]
+[*.{md,mdx}]
 trim_trailing_whitespace = false
 
