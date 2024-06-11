@@ -30,16 +30,21 @@ In my spare time, I hang out on [StackOverflow](https://stackoverflow.com/users/
 
 Here's a brief timeline of my life events. If you're interested to know more about me professionally, contact me on [LinkedIn](https://www.linkedin.com/in/mntuan/) or drop me an email.
 
+## 2024
+
+- 💼 Joined [TikTok](https://www.crunchbase.com/organization/tiktok), a leading platform for short video content
+
 ## 2023
 
 - 👼 Became a father
 - 🖋 Made this blog
-- 📚 Learned [Typescript](https://www.typescriptlang.org), [NextJs](https://nextjs.org), [Scala](https://www.scala-lang.org), [Spark](https://spark.apache.org), [Rust](https://www.rust-lang.org/)
+- 📚 Learned [Typescript](https://www.typescriptlang.org), [NextJs](https://nextjs.org), [Rust](https://www.rust-lang.org/)
 
 ## 2022
 
-- 💼 Joined [Motional](https://motional.com), a leading self-driving car company
+- 💼 Joined [Motional](https://www.crunchbase.com/organization/hyundai-aptiv-autonomous-driving-joint-venture), a leading self-driving car company
 - 💍 Got married
+- 📚 Learned [Scala](https://www.scala-lang.org), [Spark](https://spark.apache.org)
 
 ## 2021
 
