@@ -79,10 +79,10 @@ I ended up cherry-picking some features I like from it into my blog:
 - The Blog List Page. Specifically pagination and searching.
 - Rendering the Author page using MDX. Mine was just a regular React page.
 - Theme switching / Jump to top button
-- Sitemap and SEO, although NextJs 13 does [Sitemap](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap) and [SEO](https://nextjs.org/blog/next-13-2#built-in-seo-support-with-new-metadata-api) very differently compare to it, I doubt I wouldn't even bother doing SEO without reading Tim's works.
+- Sitemap and SEO, although NextJs 13 does [Sitemap](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/sitemap) and [SEO](https://nextjs.org/blog/next-13-2#built-in-seo-support-with-new-metadata-api) very differently compared to it, I doubt I wouldn't even bother doing SEO without reading Tim's works.
 - RSS feed generation.
 
-All and all, I thank [Tim](https://github.com/timlrx) for producing this amazing work. Without reading it, my blog would never become as it is today.
+All and all, thanks [Tim](https://github.com/timlrx) for producing this amazing work. Without reading it, my blog would never become as it is today.
 
 # The Learnings
 

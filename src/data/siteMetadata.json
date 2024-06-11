@@ -10,7 +10,7 @@
   "siteLogo": "/static/images/logo.svg",
   "siteThumbnail": "/static/images/site-thumbnail.webp",
   "locale": "en-US",
-  "numLatestPosts": 3,
+  "numLatestPosts": 5,
   "postsPerPage": 5,
   "host": "https://rkt2spc.com",
   "comments": {
