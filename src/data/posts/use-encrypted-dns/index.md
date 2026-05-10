@@ -29,7 +29,7 @@ If someone else reading your browsing history doesn't creep you up enough. They 
 
 So even though **x.com** is supposed to be at IP `1.2.3.4` you can actually be visiting a malicious server at `5.6.7.8` acting as **x.com**. This is commonly known as [DNS Spoofing].
 
-However, the use of [TLS], or more commonly known under the form [HTTPS] (yes, the prefix in-front of your address), somewhat protect you from DNS Spoofing exploits as the TLS certificate issued by [Certificate Authorities](https://en.wikipedia.org/wiki/Certificate_authority) requires a domain ownership proof. If you want to know more about TLS, checkout my previous article [TLS in a Nutshell](/blog/tls-in-a-nutshell).
+However, the use of [TLS], or more commonly known under the form [HTTPS] (yes, the prefix in-front of your address), somewhat protect you from DNS Spoofing exploits as the TLS certificate issued by [Certificate Authorities](https://en.wikipedia.org/wiki/Certificate_authority) requires a domain ownership proof.
 
 # Using Encrypted DNS
 
